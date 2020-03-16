@@ -12,6 +12,12 @@ const App = ()=> {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
+  useEffect(() => {
+    axios.get("/api/users").then(response => setUsers(response.data));
+  }, []);
+
+
+
   const onSubmit = async(ev)=> {
     ev.preventDefault();
     const credentials = {
